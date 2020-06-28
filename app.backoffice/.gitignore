@@ -1,0 +1,4 @@
+# NOTE: Only insert specific paths here,
+#       if you need something generic add it to root ignore file.
+
+/public/build

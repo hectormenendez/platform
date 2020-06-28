@@ -12,7 +12,7 @@
         ],
         "*.svelte": [
             "eslint --fix",
-            "prettier --write --plugin-search-dir=./app.backoffice"
+            "prettier --write --plugin-search-dir=."
         ]
     },
     "scripts": {

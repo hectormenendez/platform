@@ -1,6 +1,3 @@
-# generic
 .DS_*
 node_modules
 
-# specific
-/backoffice/public/build
