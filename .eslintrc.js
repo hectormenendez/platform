@@ -1,3 +1,5 @@
+const { NODE_ENV } = process.env;
+
 module.exports = {
     root: true,
 
@@ -24,5 +26,18 @@ module.exports = {
     rules: {
         // original: "error"
         "prettier/prettier": "warn",
+
+        // Conditional from the environment
+        ...(NODE_ENV !== "production"
+            ? {
+                  "no-console": "warn",
+                  "no-debugger": "warn",
+                  "no-alert": "warn",
+              }
+            : {
+                  "no-console": "error",
+                  "no-debugger": "error",
+                  "no-alert": "error",
+              }),
     },
 };
