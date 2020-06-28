@@ -11,8 +11,8 @@
             "eslint --fix"
         ],
         "*.svelte": [
-            "prettier --write --plugin-search-dir=.",
-            "eslint --fix"
+            "eslint --fix",
+            "prettier --write --plugin-search-dir=./app.backoffice"
         ]
     },
     "scripts": {
@@ -33,6 +33,7 @@
         "lerna": "^3.22.1",
         "lint-staged": "^10.2.11",
         "prettier": "2.0.5",
-        "prettier-plugin-svelte": "^1.1.0"
+        "prettier-plugin-svelte": "^1.1.0",
+        "svelte": "^3.23.2"
     }
 }
