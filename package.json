@@ -3,7 +3,7 @@
     "private": true,
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "NODE_ENV=production lint-staged"
         }
     },
     "lint-staged": {
@@ -21,6 +21,7 @@
         "eslint-config-airbnb-base": "^14.2.0",
         "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-prettier": "^3.1.4",
         "husky": "^4.2.5",
         "lerna": "^3.22.1",
         "lint-staged": "^10.2.11",

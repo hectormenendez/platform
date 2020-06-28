@@ -6,14 +6,23 @@ module.exports = {
         es6: false,
     },
 
-    parser: "babel-eslint",
     parserOptions: {
         ecmaVersion: 2020,
         sourceType: "module",
         ecmaFeatures: {},
     },
 
-    extends: ["airbnb-base", "prettier"],
+    extends: [
+        "airbnb-base",
+        "prettier", // disables eslint-rules that conflic with prettier.
+    ],
 
-    rules: {},
+    plugins: [
+        "prettier", // runs the prettier and eslint on the same step.
+    ],
+
+    rules: {
+        // original: "error"
+        "prettier/prettier": "warn",
+    },
 };
