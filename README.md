@@ -38,7 +38,7 @@ The general idea in this version is to determine the base technology to use on t
 The general idea that I have in mind is to build a piece of software that allows me to build other pieces of software, remember that I talked about a headless CMS? yeah that's the first goal. A super simple one, nothing fancy (remember the rules).
 
 * [x] [`#5`](/../../issues/5) Handle modules and their dependencies in a single place.
-* [ ] [`#6`](/../../issues/6) Tooling for best practices in code writing.
+* [x] [`#6`](/../../issues/6) Tooling for best practices in code writing.
 * [ ] [`#7`](/../../issues/7) Create a skelleton App for the backoffice.
 * [ ] [`#8`](/../../issues/8) Create a skelleton Project for the database server.
 * [ ] [`#9`](/../../issues/9) Make first connection between Backoffice App and Database Provider.
