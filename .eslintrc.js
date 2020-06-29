@@ -14,7 +14,6 @@ module.exports = {
     },
 
     extends: [
-        "standard",
         "prettier", // disables eslint-rules that conflic with prettier.
     ],
 
