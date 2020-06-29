@@ -12,9 +12,8 @@
         ]
     },
     "scripts": {
-        "start": "lerna run parent:start --stream --parallel",
-        "lerna": "lerna",
-        "eslint": "eslint"
+        "setup": "npm i && lerna bootstrap",
+        "start": "lerna run parent:start --stream --parallel"
     },
     "devDependencies": {
         "eslint": "^7.3.1",

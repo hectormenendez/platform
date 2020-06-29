@@ -27,6 +27,16 @@ module.exports = {
         // original: "error"
         "prettier/prettier": "warn",
 
+        // Hoisting is a very useful feature of Javascript for readibility, keep it for functions.
+        // original: not-present (error)
+        "no-use-before-define": [
+            "error",
+            {
+                functions: false,
+                classes: false,
+            },
+        ],
+
         // Conditional from the environment
         ...(NODE_ENV !== "production"
             ? {
