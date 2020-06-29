@@ -1,0 +1,11 @@
+{
+    "name": "root",
+    "private": true,
+    "scripts": {
+        "start": "lerna run parent:start --stream --parallel",
+        "lerna": "lerna"
+    },
+    "devDependencies": {
+        "lerna": "^3.22.1"
+    }
+}
