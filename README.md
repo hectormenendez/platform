@@ -4,7 +4,7 @@
 
 ```bash
 # installs root dependencies and bootstraps packages
-npm run setup
+npm i
 ```
 
 #### Global commands
@@ -39,7 +39,7 @@ The general idea that I have in mind is to build a piece of software that allows
 
 * [x] [`#5`](/../../issues/5) Handle modules and their dependencies in a single place.
 * [x] [`#6`](/../../issues/6) Tooling for best practices in code writing.
-* [ ] [`#7`](/../../issues/7) Create a skelleton App for the backoffice.
+* [x] [`#7`](/../../issues/7) Create a skelleton App for the backoffice.
 * [ ] [`#8`](/../../issues/8) Create a skelleton Project for the database server.
 * [ ] [`#9`](/../../issues/9) Make first connection between Backoffice App and Database Provider.
 
