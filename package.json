@@ -1,6 +1,13 @@
 {
     "name": "root",
     "private": true,
+    "engines": {
+        "node": ">=12.16.0"
+    },
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "husky": {
         "hooks": {
             "pre-commit": "NODE_ENV=production lint-staged"
@@ -9,24 +16,28 @@
     "lint-staged": {
         "*.{js,jsx}": [
             "eslint --fix"
+        ],
+        "*.svelte": [
+            "eslint --fix",
+            "prettier --write --plugin-search-dir=."
         ]
     },
     "scripts": {
-        "setup": "npm i && lerna bootstrap",
+        "postinstall": "lerna bootstrap",
         "start": "lerna run parent:start --stream --parallel"
     },
     "devDependencies": {
         "eslint": "^7.3.1",
         "eslint-config-prettier": "^6.11.0",
-        "eslint-config-standard": "^14.1.1",
         "eslint-plugin-import": "^2.22.0",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^3.1.4",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-standard": "^4.0.1",
+        "eslint-plugin-svelte3": "^2.7.3",
         "husky": "^4.2.5",
         "lerna": "^3.22.1",
         "lint-staged": "^10.2.11",
-        "prettier": "2.0.5"
+        "prettier": "2.0.5",
+        "prettier-plugin-svelte": "^1.1.0",
+        "svelte": "^3.23.2"
     }
 }

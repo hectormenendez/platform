@@ -1,53 +1,44 @@
-const { NODE_ENV } = process.env;
+const SvelteCompiler = require("svelte/compiler");
 
 module.exports = {
     root: true,
 
-    env: {
-        es2020: true,
-        es6: false,
-    },
+    extends: ["./.etc/eslint/config-base"],
 
-    parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: "module",
-        ecmaFeatures: {},
-    },
+    overrides: [
+        // Node specific
+        {
+            files: [
+                "./*.js", // root conf files
+                "./app.*/*.js", // app conf files
+                "./.etc/**/*.js", // etc conf files
+            ],
+            extends: ["./.etc/eslint/config-node"],
+        },
+        // Svelte specific
+        {
+            files: ["*.svelte"],
+            processor: "svelte3/svelte3",
 
-    extends: [
-        "standard",
-        "prettier", // disables eslint-rules that conflic with prettier.
+            env: {
+                browser: true,
+            },
+
+            plugins: ["svelte3"],
+
+            settings: {
+                "svelte3/compiler": SvelteCompiler,
+            },
+
+            rules: {
+                // https://github.com/sveltejs/eslint-plugin-svelte3/blob/master/OTHER_PLUGINS.md
+                "prettier/prettier": 0,
+                "import/first": 0,
+                "import/no-duplicates": 0,
+                "import/no-mutable-exports": 0,
+                "import/prefer-default-export": 0,
+                "import/exports-last": 0,
+            },
+        },
     ],
-
-    plugins: [
-        "prettier", // runs the prettier and eslint on the same step.
-    ],
-
-    rules: {
-        // original: "error"
-        "prettier/prettier": "warn",
-
-        // // Hoisting is a very useful feature of Javascript for readibility, keep it for functions.
-        // // original: not-present (error)
-        // "no-use-before-define": [
-        //     "error",
-        //     {
-        //         functions: false,
-        //         classes: false,
-        //     },
-        // ],
-
-        // Conditional from the environment
-        ...(NODE_ENV !== "production"
-            ? {
-                  "no-console": "warn",
-                  "no-debugger": "warn",
-                  "no-alert": "warn",
-              }
-            : {
-                  "no-console": "error",
-                  "no-debugger": "error",
-                  "no-alert": "error",
-              }),
-    },
 };
