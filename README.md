@@ -13,11 +13,18 @@ npm i
 # get a list of all lerna commands
 npx lerna --help
 
+# Setup a new packacge managed by Lerna
+# NOTE: Don't forget to check that the folder was added to ./lerna.json
+npx lerna create <pkg> --private --yes ./<pkg>
+
 # install a dependency to a specific package
 npx lerna add eslint --dev --scope=backoffice
 
 # remove a dependency from a specific package
 npx lerna exec 'npm r -D eslint' --scope=backoffice
+
+# Run a script on an specific package
+npx lerna run <script> --scope <pkg>
 ```
 
 #### Starting up

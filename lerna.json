@@ -3,5 +3,5 @@
     "npmClient": "npm",
     "command": {},
     "loglevel": "info",
-    "packages": ["app.*"]
+    "packages": ["app.*", "data"]
 }

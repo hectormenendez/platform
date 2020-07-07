@@ -1,4 +1,9 @@
+
 .DS_*
+.env
+
+*.log
+
 node_modules
 *.log
 

@@ -1,0 +1,9 @@
+{
+    "name": "data",
+    "version": "0.0.1",
+    "private": true,
+    "main": "src/index.js",
+    "scripts": {
+        "parent:start": "node $npm_package_main"
+    }
+}
