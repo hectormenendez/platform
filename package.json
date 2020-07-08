@@ -1,7 +1,6 @@
 {
-    "name": "root",
-    "version": "0.0.1",
     "private": true,
+    "name": "root",
     "engines": {
         "node": ">=12.16.0"
     },
