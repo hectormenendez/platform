@@ -17,6 +17,7 @@ module.exports = {
     plugins: [
         "import",
         "prettier", // runs the prettier and eslint on the same step.
+        "eslint-comments", // extra rules for eslint-specific comment control
     ],
 
     settings: {
@@ -28,13 +29,26 @@ module.exports = {
         // original: "error"
         "prettier/prettier": "warn",
 
+        // ------------------------------------------------------------------------- eslint-comments
+
+        // disallows eslint-enable comments for multiple eslint-disable comments
+        "eslint-comments/no-aggregating-enable": "error",
+
+        // disallows eslint-disable comments without rule names
+        "eslint-comments/no-unlimited-disable": "error",
+
+        // disallow disables that don't cover any errors
+        "eslint-comments/no-unused-disable": "error",
+
+        // disallow enables that don't enable anything or enable rules that weren't disabled
+        "eslint-comments/no-unused-enable": "error",
+
         // -------------------------------------------------------------------------- AirBnb: strict
 
         // requires or disallows strict mode directives.
         strict: ["error", "never"],
 
-
-        // ---------------------------------------------------------------------- AirBnb: best practices
+        // ------------------------------------------------------------------ AirBnb: best practices
 
         // enforces return statements in callbacks of array's methods
         "array-callback-return": ["error", { allowImplicit: true }],
