@@ -1,3 +1,10 @@
 .DS_*
 node_modules
+*.log
+
+# IDEs
+*.iml
+*.code-workspace
+.idea
+
 
