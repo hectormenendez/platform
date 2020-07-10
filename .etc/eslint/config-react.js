@@ -31,7 +31,7 @@ module.exports = {
 
         // Prevent missing displayName in a React component definition
         // original: "off", { ignoreTranspilerName: false }
-        "react/display-name": ["error", { ignoreTranspilerName: true }],
+        "react/display-name": ["error", { ignoreTranspilerName: false }],
 
         // Forbid certain propTypes (any, array, object)
         "react/forbid-prop-types": [
