@@ -9,8 +9,7 @@ module.exports = {
         // Node specific
         {
             files: [
-                "./*.js", // root conf files
-                "./app.*/*.js", // app conf files
+                ".*rc.js", // root conf files
                 "./.etc/**/*.js", // etc conf files
             ],
             extends: ["./.etc/eslint/config-node"],
