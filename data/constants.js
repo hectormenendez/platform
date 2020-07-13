@@ -1,4 +1,6 @@
-const DB_TABLE_NAME = {};
+const DB_TABLE_NAME = {
+    USER: "user",
+};
 
 const DB_TABLE_FIELD = {
     COMMON: {
@@ -7,9 +9,15 @@ const DB_TABLE_FIELD = {
         UDATE: "date_updated",
         DDATE: "date_deleted",
     },
+    [DB_TABLE_NAME.USER]: {
+        EMAIL: "email",
+        PASSW: "password",
+        FNAME: "name_first",
+        LNAME: "name_last",
+    },
 };
 
-const DB_TABLE_ORDER = [];
+const DB_TABLE_ORDER = [DB_TABLE_NAME.USER];
 
 module.exports = {
     DB_TABLE_NAME,
