@@ -1,2 +1,8 @@
-# pgdata from postgrsql
-/db
+# miscelaneous data (mostly from containers)
+.files/**
+
+# image generated from  ./schema.mmd (used in README)
+!.files/schema.svg
+
+# Private dbvs files
+dbvs/**/*.local.js

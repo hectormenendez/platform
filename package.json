@@ -20,6 +20,10 @@
         "*.svelte": [
             "eslint --fix",
             "prettier --write --plugin-search-dir=."
+        ],
+        "./data/schema.mmd": [
+            "lerna run build:schema --scope=data --no-prefix --loglevel=error --",
+            "git add ./data/.files/schema.svg"
         ]
     },
     "scripts": {
