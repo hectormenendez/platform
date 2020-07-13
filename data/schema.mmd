@@ -1,0 +1,10 @@
+erDiagram
+    user o|--|{ wallet: "has"
+    user }|--|{ transaction: "makes"
+
+    wallet ||--|| wallet-type: "is of"
+    wallet-type ||--|{ wallet-rule: "implements"
+
+    transaction ||--|{ transaction-category: "belongs to"
+    transaction ||--|| transaction-currency: "is done with"
+    transaction ||--|{ wallet: "modifies"
