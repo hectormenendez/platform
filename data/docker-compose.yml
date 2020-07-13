@@ -1,15 +1,38 @@
 version: "3.5"
 
+networks:
+    platform-network:
+        driver: bridge
+
 services:
 
-    data:
+    postgres:
+        container_name: platfrom-db
         image: postgres
-        restart: always
+        restart: unless-stopped
         volumes:
-            - ./db:/var/lib/postgresql/data
+            - ./.files/db:/var/lib/postgresql/data
         ports:
             - 5432:5432
+        networks:
+            - platform-network
         environment:
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
             POSTGRES_USER: ${POSTGRES_USER}
             POSTGRES_DB: ${POSTGRES_DB}
+
+    pgadmin:
+        container_name: platform-admin
+        image: dpage/pgadmin4
+        restart: unless-stopped
+        depends_on:
+            - postgres
+        volumes:
+            - ./.files/admin:/root/.pgadmin
+        ports:
+            - 5454:80
+        networks:
+            - platform-network
+        environment:
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
