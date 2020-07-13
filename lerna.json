@@ -2,5 +2,6 @@
     "version": "0.0.1",
     "npmClient": "npm",
     "command": {},
+    "loglevel": "info",
     "packages": ["app.*"]
 }
