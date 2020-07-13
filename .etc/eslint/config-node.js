@@ -166,7 +166,7 @@ module.exports = {
         ],
 
         // No Node.js builtin modules
-        "import/no-nodejs-modules": "error",
+        "import/no-nodejs-modules": "off",
 
         // Forbid require() calls with expressions
         "import/no-dynamic-require": "off",
