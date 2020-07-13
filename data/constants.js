@@ -1,15 +1,15 @@
-const DB_TABLE_NAME = {
+const DB_TABLE = {
     USER: "user",
 };
 
-const DB_TABLE_FIELD = {
+const DB_FIELD = {
     COMMON: {
         ID: "id",
         CDATE: "date_created",
         UDATE: "date_updated",
         DDATE: "date_deleted",
     },
-    [DB_TABLE_NAME.USER]: {
+    [DB_TABLE.USER]: {
         EMAIL: "email",
         PASSW: "password",
         FNAME: "name_first",
@@ -17,12 +17,12 @@ const DB_TABLE_FIELD = {
     },
 };
 
-const DB_TABLE_ORDER = [DB_TABLE_NAME.USER];
+const DB_ORDER = [DB_TABLE.USER];
 
 module.exports = {
-    DB_TABLE_NAME,
-    DB_TABLE_FIELD,
-    DB_TABLE_ORDER,
+    DB_TABLE,
+    DB_FIELD,
+    DB_ORDER,
     EXT: {
         SEED: ".js",
         SEED_LOCAL: ".local.js",

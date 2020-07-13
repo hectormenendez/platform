@@ -1,9 +1,9 @@
 /** @typedef {import("knex")} Knex */
 
-const { DB_TABLE_NAME, DB_TABLE_FIELD } = require("../constants");
+const { DB_TABLE, DB_FIELD } = require("../constants");
 
-const { COMMON } = DB_TABLE_FIELD;
-const USER = DB_TABLE_FIELD[DB_TABLE_NAME.USER];
+const { COMMON } = DB_FIELD;
+const USER = DB_FIELD[DB_TABLE.USER];
 
 module.exports = {
     /**
@@ -11,7 +11,7 @@ module.exports = {
      * @param {Knex} knex
      */
     async up({ schema, fn }) {
-        await schema.createTable(DB_TABLE_NAME.USER, (table) => {
+        await schema.createTable(DB_TABLE.USER, (table) => {
             table.increments(COMMON.ID).notNullable();
             table.string(USER.EMAIL, 254).notNullable().unique();
             table.string(USER.PASSW, 500).notNullable();
@@ -28,6 +28,6 @@ module.exports = {
      * @param {Knex} knex
      */
     async down({ schema }) {
-        await schema.dropTable(DB_TABLE_NAME.USER);
+        await schema.dropTable(DB_TABLE.USER);
     },
 };

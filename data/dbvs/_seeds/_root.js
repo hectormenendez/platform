@@ -3,14 +3,14 @@
 const PATH = require("path");
 const { promises: FS } = require("fs");
 
-const { EXT, DB_TABLE_ORDER, DB_TABLE_FIELD } = require("../../constants");
+const { EXT, DB_ORDER, DB_FIELD } = require("../../constants");
 
-const { ID } = DB_TABLE_FIELD.COMMON;
+const { ID } = DB_FIELD.COMMON;
 /**
  * @param {import("knex")} knex
  */
 exports.seed = function (knex) {
-    return DB_TABLE_ORDER.reduce(
+    return DB_ORDER.reduce(
         (prevPromise, tableName) =>
             prevPromise.then(async () => {
                 // Get existent rows
