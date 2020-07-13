@@ -4,6 +4,7 @@
     "main": "src/index.js",
     "scripts": {
         "start": "postgraphile",
+        "dbvs:seed": "knex seed:run --specific=_root.js",
         "dbvs:first": "knex migrate:rollback --all",
         "dbvs:last": "knex migrate:latest",
         "dbvs:next": "knex migrate:up --",
