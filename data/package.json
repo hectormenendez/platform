@@ -17,6 +17,7 @@
         "pg": "^8.3.0"
     },
     "devDependencies": {
+        "@graphile-contrib/pg-simplify-inflector": "^6.0.0",
         "@mermaid-js/mermaid-cli": "^8.5.3",
         "postgraphile": "^4.7.0"
     }
