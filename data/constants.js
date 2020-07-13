@@ -1,3 +1,11 @@
+const { name: NAME } = require("./package.json");
+
+const DB_SCHEMA = {
+    PUBLIC: `${NAME}_public`,
+    HIDDEN: `${NAME}_hidden`,
+    PRIVATE: `${NAME}_private`,
+};
+
 const DB_TABLE = {
     USER: "user",
 };
@@ -17,9 +25,11 @@ const DB_FIELD = {
     },
 };
 
-const DB_ORDER = [DB_TABLE.USER];
+const DB_ORDER = [{ SCHEMA: DB_SCHEMA.PUBLIC, TABLE: DB_TABLE.USER }];
 
 module.exports = {
+    NAME,
+    DB_SCHEMA,
     DB_TABLE,
     DB_FIELD,
     DB_ORDER,

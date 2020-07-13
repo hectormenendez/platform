@@ -1,8 +1,11 @@
 # miscelaneous data (mostly from containers)
 .files/**
-
-# image generated from  ./schema.mmd (used in README)
-!.files/schema.svg
-
 # Private dbvs files
 dbvs/**/*.local.js
+
+# --------------------------------------------------------------------------------------- Exceptions
+
+# not the image generated from  ./schema.mmd (used in README)
+!.files/schema.svg
+# not the database init script.
+!.files/db.sh

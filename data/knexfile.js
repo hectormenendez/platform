@@ -5,12 +5,14 @@ const { POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD } = process.env;
 module.exports = {
     development: {
         client: "pg",
+        debug: true,
         connection: {
             database: POSTGRES_DB,
             user: POSTGRES_USER,
             password: POSTGRES_PASSWORD,
         },
         migrations: {
+            schemaName: "knex",
             tableName: "dbvs",
             directory: "./dbvs",
         },
