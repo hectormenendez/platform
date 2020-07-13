@@ -3,11 +3,7 @@
     "version": "0.0.1",
     "main": "src/index.js",
     "scripts": {
-        "parent:start": "node $npm_package_main",
-        "build:schema": "mmdc -i ./schema.mmd -o ./.files/schema.svg",
-        "dbvs:add": "knex migrate:make $(git branch --show-current)",
-        "dbvs:seed": "knex seed:run --specific=_root.js",
-        "dbvs:list": "knex migrate:list",
+        "start": "postgraphile",
         "dbvs:first": "knex migrate:rollback --all",
         "dbvs:last": "knex migrate:latest",
         "dbvs:next": "knex migrate:up --",
@@ -20,6 +16,7 @@
         "pg": "^8.3.0"
     },
     "devDependencies": {
-        "@mermaid-js/mermaid-cli": "^8.5.3"
+        "@mermaid-js/mermaid-cli": "^8.5.3",
+        "postgraphile": "^4.7.0"
     }
 }
