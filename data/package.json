@@ -10,13 +10,10 @@
         "linux"
     ],
     "scripts": {
-        "start": "postgraphile",
-        "dbvs": "node ./dbvs"
+        "start": "postgraphile"
     },
     "dependencies": {
-        "dotenv": "^8.2.0",
-        "knex": "^0.21.2",
-        "pg": "^8.3.0"
+        "dotenv": "^8.2.0"
     },
     "devDependencies": {
         "@graphile-contrib/pg-simplify-inflector": "^6.0.0",

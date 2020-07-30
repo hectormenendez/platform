@@ -1,7 +1,13 @@
 {
     "version": "0.0.1",
-    "npmClient": "npm",
-    "command": {},
+    "packages": ["app.*", "data"],
     "loglevel": "info",
-    "packages": ["app.*", "data"]
+    "npmClient": "npm",
+    "npmClientArgs": ["--ignore-prepublish", "--no-ci"],
+    "command": {
+        "bootstrap": {
+            "hoist": "**",
+            "loglevel": "verbose"
+        }
+    }
 }
