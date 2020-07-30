@@ -2,14 +2,16 @@
     "name": "data",
     "version": "0.0.1",
     "main": "src/index.js",
+    "engines": {
+        "node": ">=12.16.0"
+    },
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "scripts": {
         "start": "postgraphile",
-        "dbvs:seed": "knex seed:run --specific=_root.js",
-        "dbvs:first": "knex migrate:rollback --all",
-        "dbvs:last": "knex migrate:latest",
-        "dbvs:next": "knex migrate:up --",
-        "dbvs:prev": "knex migrate:down --",
-        "dbvs:reset": "npm run -s dbvs:first && npm run -s dbvs:last && npm run -s dbvs:seed"
+        "dbvs": "node ./dbvs"
     },
     "dependencies": {
         "dotenv": "^8.2.0",
