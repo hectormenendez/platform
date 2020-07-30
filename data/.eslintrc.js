@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ["../.eslintrc.js", "../.etc/eslint/config-node.js"],
+    extends: ["@packages/base", "@packages/node"],
 
     ignorePatterns: ["./db"],
 

@@ -1,7 +1,10 @@
 const { NODE_ENV } = process.env;
 const PRODUCTION = NODE_ENV === "production";
+const EXTENSIONS = [".js", ".mjs", "json", ".jsx", ".ts", ".tsx", ".d.ts"];
 
 module.exports = {
+    root: true,
+
     env: {
         es2020: true,
     },
@@ -21,8 +24,13 @@ module.exports = {
     ],
 
     settings: {
-        "import/extensions": [".js", ".mjs", "json"],
+        "import/extensions": EXTENSIONS,
         "import/ignore": ["node_modules"],
+        "import/resolver": {
+            node: {
+                extensions: EXTENSIONS,
+            },
+        },
     },
 
     rules: {
@@ -118,10 +126,7 @@ module.exports = {
         "no-else-return": ["error", { allowElseIf: false }],
 
         // disallow empty functions, except for standalone funcs/arrows
-        "no-empty-function": [
-            "error",
-            { allow: ["arrowFunctions", "functions", "methods"] },
-        ],
+        "no-empty-function": ["error", { allow: ["arrowFunctions", "functions", "methods"] }],
 
         // disallow empty destructuring patterns
         "no-empty-pattern": "error",
@@ -153,10 +158,7 @@ module.exports = {
 
         // disallow implicit type conversions
         // original: off
-        "no-implicit-coercion": [
-            "error",
-            { boolean: true, number: true, string: true, allow: [] },
-        ],
+        "no-implicit-coercion": ["error", { boolean: true, number: true, string: true, allow: [] }],
 
         // disallow var and named functions in global scope (used with "parserOptions": { "sourceType": "module" })
         // original: "off"
@@ -207,10 +209,7 @@ module.exports = {
 
         // disallow parameter object manipulation except for specific exclusions
         // original: several exc
-        "no-param-reassign": [
-            "error",
-            { props: true, ignorePropertyModificationsFor: [] },
-        ],
+        "no-param-reassign": ["error", { props: true, ignorePropertyModificationsFor: [] }],
 
         // disallow usage of __proto__ property
         "no-proto": "error",
@@ -573,26 +572,16 @@ module.exports = {
 
         // disallow declaration of variables that are not used in the code
         // original: ignoreRestSiblings: true
-        "no-unused-vars": [
-            "error",
-            { vars: "all", args: "after-used", ignoreRestSiblings: false },
-        ],
+        "no-unused-vars": ["error", { vars: "all", args: "after-used", ignoreRestSiblings: false }],
 
         // disallow use of variables before they are defined
         // original: all true, allow functions to be hoisted it's useful.
-        "no-use-before-define": [
-            "error",
-            { functions: false, classes: true, variables: true },
-        ],
+        "no-use-before-define": ["error", { functions: false, classes: true, variables: true }],
 
         // ----------------------------------------------------------------------------- AirBnb: es6
 
         // enforces no braces where they can be omitted
-        "arrow-body-style": [
-            "error",
-            "as-needed",
-            { requireReturnForObjectLiteral: false },
-        ],
+        "arrow-body-style": ["error", "as-needed", { requireReturnForObjectLiteral: false }],
 
         // require parens in arrow function arguments
         "arrow-parens": ["error", "always"],
@@ -668,17 +657,11 @@ module.exports = {
 
         // suggest using arrow functions as callbacks
         // original: allowUnboundThis: true
-        "prefer-arrow-callback": [
-            "error",
-            { allowNamedFunctions: false, allowUnboundThis: false },
-        ],
+        "prefer-arrow-callback": ["error", { allowNamedFunctions: false, allowUnboundThis: false }],
 
         // suggest using of const declaration for variables that are never modified after declared
         // original: ignoreReadBeforeAssign: true
-        "prefer-const": [
-            "error",
-            { destructuring: "any", ignoreReadBeforeAssign: false },
-        ],
+        "prefer-const": ["error", { destructuring: "any", ignoreReadBeforeAssign: false }],
 
         // Prefer destructuring from arrays and objects
         "prefer-destructuring": [
@@ -733,10 +716,7 @@ module.exports = {
 
         // ensure imports point to files/modules that can be resolved
         // original: amd: undefined
-        "import/no-unresolved": [
-            "error",
-            { commonjs: true, caseSensitive: true, amd: false },
-        ],
+        "import/no-unresolved": ["error", { commonjs: true, caseSensitive: true, amd: false }],
 
         // ensure named imports coupled with named exports
         "import/named": "error",
@@ -791,14 +771,20 @@ module.exports = {
         "import/no-duplicates": "error",
 
         // disallow namespace imports
-        // original: "off"
-        "import/no-namespace": "error",
+        "import/no-namespace": "off",
 
         // Ensure consistent use of file extension within the import path
         "import/extensions": [
             "error",
             "ignorePackages",
-            { js: "never", mjs: "never", jsx: "never" },
+            {
+                json: "always",
+                js: "never",
+                mjs: "never",
+                jsx: "never",
+                ts: "never",
+                tsx: "never",
+            },
         ],
 
         // ensure absolute imports are above relative imports and that unassigned imports are ignored
@@ -888,9 +874,66 @@ module.exports = {
 
         // Reports modules without any exports, or with unused exports
         // original: "off"
-        "import/no-unused-modules": [
-            "error",
-            { missingExports: false, unusedExports: true },
-        ],
+        "import/no-unused-modules": ["error", { missingExports: false, unusedExports: true }],
     },
+
+    overrides: [
+        {
+            files: ["**/*.ts", "**/*.tsx"],
+            parser: "@typescript-eslint/parser",
+            parserOptions: {
+                ecmaVersion: 2020,
+                sourceType: "module",
+                warnOnUnsupportedTypeScriptVersion: true,
+            },
+            settings: {
+                "import/external-module-folders": ["node_modules", "node_modules/@types"],
+                "import/parsers": {
+                    "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"],
+                },
+            },
+            rules: {
+                // TypeScript already ensures that named imports exist in the referenced module
+                "import/named": "off",
+
+                // TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
+                "default-case": "off",
+
+                // 'tsc' already handles this
+                // https://github.com/typescript-eslint/typescript-eslint/issues/291
+                "no-dupe-class-members": "off",
+
+                // 'tsc' already handles this
+                // https://github.com/typescript-eslint/typescript-eslint/issues/477
+                "no-undef": "off",
+
+                // these rules have a typescript counterpart
+                "no-unused-vars": "off",
+                "no-array-constructor": "off",
+                "no-unused-expressions": "off",
+                "no-useless-constructor": "off",
+                "no-use-before-define": "off",
+
+                //  standardize the use of type assertion style across the codebase
+                // original: "warn", no-settings
+                "@typescript-eslint/consistent-type-assertions": [
+                    "error",
+                    { assertionStyle: "as", objectLiteralTypeAssertions: "never" },
+                ],
+
+                // disallow use of variables before they are defined
+                // original: all true, allow functions to be hoisted it's useful.
+                "@typescript-eslint/no-use-before-define": [
+                    "error",
+                    {
+                        functions: false,
+                        classes: true,
+                        variables: true,
+                        enums: true,
+                        typedefs: true,
+                    },
+                ],
+            },
+        },
+    ],
 };

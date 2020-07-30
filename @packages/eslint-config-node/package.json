@@ -1,0 +1,14 @@
+{
+    "name": "@packages/eslint-config-node",
+    "version": "0.0.1",
+    "description": "The node configuration for our eslint rules.",
+    "author": "Hector Menendez <hector@gik.mx>",
+    "homepage": "https://gik.mx",
+    "license": "BSD 3-Clause",
+    "main": "index.js",
+    "scripts": {},
+    "dependencies": {
+        "@packages/eslint-config-base": "^0.0.1",
+        "eslint-plugin-node": "^11.1.0"
+    }
+}

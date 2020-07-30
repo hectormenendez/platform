@@ -18,6 +18,8 @@
     "devDependencies": {
         "@graphile-contrib/pg-simplify-inflector": "^6.0.0",
         "@mermaid-js/mermaid-cli": "^8.5.3",
+        "@packages/eslint-config-base": "^0.0.1",
+        "@packages/eslint-config-node": "^0.0.1",
         "postgraphile": "^4.7.0"
     }
 }

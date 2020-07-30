@@ -2,12 +2,14 @@ const { NODE_ENV } = process.env;
 const PRODUCTION = NODE_ENV === "production";
 
 module.exports = {
+    root: true,
+
     env: {
         browser: false,
         node: true,
     },
 
-    extends: ["plugin:node/recommended"],
+    extends: ["@packages/base", "plugin:node/recommended"],
 
     settings: {
         node: {
