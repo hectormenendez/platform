@@ -1,6 +1,6 @@
 {
     "version": "0.0.1",
-    "packages": ["app.*", "data"],
+    "packages": ["backoffice", "data"],
     "loglevel": "info",
     "npmClient": "npm",
     "npmClientArgs": ["--ignore-prepublish", "--no-ci"],
