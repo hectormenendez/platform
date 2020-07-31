@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ["@packages/base", "@packages/node"],
+    extends: ["@packages/node"],
 
     ignorePatterns: ["./db"],
 

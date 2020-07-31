@@ -1,8 +1,9 @@
 {
     "name": "@packages/dbvs",
     "version": "0.0.1",
-    "main": "index.js",
-    "bin": "./dbvs.",
+    "bin": {
+        "dbvs": "./src/index.js"
+    },
     "engines": {
         "node": ">=12.16.0"
     },
@@ -12,6 +13,7 @@
     ],
     "scripts": {},
     "dependencies": {
+        "@packages/eslint-config-node": "^0.0.1",
         "commander": "^5.1.0",
         "pg": "^8.3.0"
     }
