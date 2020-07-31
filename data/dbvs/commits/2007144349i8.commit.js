@@ -1,4 +1,4 @@
-/** @typedef {import("../util/sql-tools")} SQLTools */
+/** @typedef {import("@packages/dbvs/src/util/sql-tools")} SQLTools */
 
 const { DB_SCHEMA, DB_TABLE, DB_FIELD } = require("../../constants");
 

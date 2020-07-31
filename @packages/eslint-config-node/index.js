@@ -81,6 +81,7 @@ module.exports = {
 
         // disallow the use of process.exit()
         // original: "off"
+        "no-process-exit": "off",
         "node/no-process-exit": PRODUCTION ? "error" : "warn",
 
         // disallow specified modules when loaded by import declarations

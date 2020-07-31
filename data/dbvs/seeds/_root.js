@@ -6,9 +6,8 @@ const { promises: FS } = require("fs");
 const { EXT, DB_ORDER, DB_FIELD } = require("../../constants");
 
 const { ID } = DB_FIELD.COMMON;
-/**
- * @param {import("knex")} knex
- */
+
+// eslint-disable-next-line node/exports-style
 exports.seed = function (knex) {
     return DB_ORDER.reduce(
         (prevPromise, { TABLE, SCHEMA }) =>
@@ -29,11 +28,7 @@ exports.seed = function (knex) {
                 const inserted = await [EXT.SEED, EXT.SEED_LOCAL].reduce(
                     (prevExtPromise, ext) =>
                         prevExtPromise.then(async (rows) => {
-                            const path = PATH.join(
-                                __dirname,
-                                SCHEMA,
-                                [TABLE, ext].join(""),
-                            );
+                            const path = PATH.join(__dirname, SCHEMA, [TABLE, ext].join(""));
                             const stat = await FS.stat(path);
                             if (!stat.isFile()) return false;
                             // A file exist:

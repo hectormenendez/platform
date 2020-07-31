@@ -15,6 +15,7 @@
     "dependencies": {
         "@packages/eslint-config-node": "^0.0.1",
         "commander": "^5.1.0",
+        "dotenv": "^8.2.0",
         "pg": "^8.3.0"
     }
 }
